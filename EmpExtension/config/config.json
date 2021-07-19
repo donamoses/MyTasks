@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "create-employee-command-set": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/createEmployee/CreateEmployeeCommandSet.js",
+          "manifest": "./src/extensions/createEmployee/CreateEmployeeCommandSet.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CreateEmployeeCommandSetStrings": "lib/extensions/createEmployee/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}
