@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "send-request-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/sendRequest/SendRequestWebPart.js",
+          "manifest": "./src/webparts/sendRequest/SendRequestWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SendRequestWebPartStrings": "lib/webparts/sendRequest/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}
