@@ -1,0 +1,39 @@
+.dasboard {
+  .squareCat {
+    border-radius: 25px;
+    padding: 20px;
+    width: 50px;
+    height: 51px;
+    opacity: 0.75;
+  }
+  .squareCat:hover {
+    opacity: 2.5;
+  }
+  .gridContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    //background-color: #f0f5f8;
+    padding: 10px;
+  }
+  .gridItem {
+    text-align: center;
+  }
+  .internalApplicationItems {
+    display: flex;
+    grid-template-columns: auto auto;
+    //background-color: #f0f5f8;
+    padding: 10px;
+  }
+  i.ms-Icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: white;
+  }
+  .squareCat1 {
+    background: #f1e6e6;
+    width: 48px;
+    border-radius: 20px;
+    padding: 10px;
+    height: 60px;
+  }
+}
