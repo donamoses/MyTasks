@@ -232,6 +232,7 @@ export default class SendRequest extends React.Component<ISendRequestProps, ISen
             <tr><td> <TextField label="Comments" id="Comments" multiline autoAdjustHeight /></td></tr>
             <tr><td hidden={this.state.hideproject}><Checkbox label="Approve in same revision ? " boxSide="end" /></td></tr>
           </table>
+          <Label style={{ color:"red" }}>* fields are mandatory </Label>
           <br />
           <DefaultButton id="b1" style={{ marginTop: '20px', float: "right", borderRadius: "10px", border: "1px solid gray" }}>Cancel</DefaultButton >
           <DefaultButton id="b2" style={{ marginTop: '20px', float: "right", marginRight: "10px", borderRadius: "10px", border: "1px solid gray" }}>Submit</DefaultButton >
