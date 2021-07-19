@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "revision-history-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/revisionHistory/RevisionHistoryWebPart.js",
+          "manifest": "./src/webparts/revisionHistory/RevisionHistoryWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "RevisionHistoryWebPartStrings": "lib/webparts/revisionHistory/loc/{locale}.js"
+  }
+}
