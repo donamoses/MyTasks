@@ -133,6 +133,7 @@ export default class SendRequest extends React.Component<ISendRequestProps, ISen
           />
         </div>
         <div >
+          <Label style={{ color: "red" }}>* fields are mandatory </Label>
           <Label >Document :  <a href={this.state.LinkToDoc}>NOT/SHML/INT-PRC/AM-00009 Migration Policy</a></Label>
           <table>
             <tr>
@@ -170,7 +171,7 @@ export default class SendRequest extends React.Component<ISendRequestProps, ISen
                   // isRequired={true}
                   principalTypes={[PrincipalType.User]}
                   resolveDelay={1000}
-                /> 
+                />
               </td>
             </tr>
           </table>
@@ -200,39 +201,39 @@ export default class SendRequest extends React.Component<ISendRequestProps, ISen
             <tr>
               <td>
                 <PeoplePicker
-                context={this.props.context}
-                titleText="Approver"
-                personSelectionLimit={1}
-                groupName={""} // Leave this blank in case you want to filter from all users    
-                showtooltip={true}
-                required={true}
-                disabled={false}
-                ensureUser={true}
-                // selectedItems={this._getApprover}
-                defaultSelectedUsers={[this.state.approver]}
-                showHiddenInUI={false}
-                principalTypes={[PrincipalType.User]}
-                resolveDelay={1000} />
+                  context={this.props.context}
+                  titleText="Approver"
+                  personSelectionLimit={1}
+                  groupName={""} // Leave this blank in case you want to filter from all users    
+                  showtooltip={true}
+                  required={true}
+                  disabled={false}
+                  ensureUser={true}
+                  // selectedItems={this._getApprover}
+                  defaultSelectedUsers={[this.state.approver]}
+                  showHiddenInUI={false}
+                  principalTypes={[PrincipalType.User]}
+                  resolveDelay={1000} />
               </td>
               <td>
                 <DatePicker label="Due Date:" id="DueDate" style={{ width: '100%' }}
-                //formatDate={(date) => moment(date).format('DD/MM/YYYY')}
-                isRequired={true}
-                // value={this.state.ExpireDate}
-                minDate={new Date()}
-                // className={controlClass.control}
-                // onSelectDate={this._onDatePickerChange}
-                placeholder="Due Date"
+                  //formatDate={(date) => moment(date).format('DD/MM/YYYY')}
+                  isRequired={true}
+                  // value={this.state.ExpireDate}
+                  minDate={new Date()}
+                  // className={controlClass.control}
+                  // onSelectDate={this._onDatePickerChange}
+                  placeholder="Due Date"
                 />
               </td>
             </tr>
           </table>
           <table>
-           
+
             <tr><td> <TextField label="Comments" id="Comments" multiline autoAdjustHeight /></td></tr>
             <tr><td hidden={this.state.hideproject}><Checkbox label="Approve in same revision ? " boxSide="end" /></td></tr>
           </table>
-          <Label style={{ color:"red" }}>* fields are mandatory </Label>
+
           <br />
           <DefaultButton id="b1" style={{ marginTop: '20px', float: "right", borderRadius: "10px", border: "1px solid gray" }}>Cancel</DefaultButton >
           <DefaultButton id="b2" style={{ marginTop: '20px', float: "right", marginRight: "10px", borderRadius: "10px", border: "1px solid gray" }}>Submit</DefaultButton >
