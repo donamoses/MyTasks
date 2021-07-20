@@ -123,22 +123,16 @@ export default class SendRequest extends React.Component<ISendRequestProps, ISen
     };
     return (
       <div className={styles.sendRequest}>
-        <div className={contentStyles.header}>
-          <span className={styles.title}>Review and approval request form of NOT/SHML/INT-PRC/AM-00009</span>
-          <IconButton
-            iconProps={cancelIcon}
-            ariaLabel="Close popup modal"
-            // onClick={this._closeModal}
-            styles={iconButtonStyles}
-          />
-        </div>
+        
+          <span className={styles.title}>Review and approval request form </span>
+         
         <div >
           <Label style={{ color: "red" }}>* fields are mandatory </Label>
-          <Label >Document :  <a href={this.state.LinkToDoc}>NOT/SHML/INT-PRC/AM-00009 Migration Policy</a></Label>
+          <Label >Document :  <a href={this.state.LinkToDoc}>NOT/SHML/INT-PRC/AM-00009 Migration Policy.docx</a></Label>
           <table>
             <tr>
-              <td><Label >Orginator : {this.state.currentuser} </Label></td>
-              <td><Label >Requester : {this.state.currentuser}</Label></td>
+              <td><Label >Orginator : SUNIL JOHN </Label></td>
+              <td><Label >Requester : SUBHA RAVEENDRAN</Label></td>
               <td><Label >Revision : 0 </Label></td>
             </tr>
           </table>
