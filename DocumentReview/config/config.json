@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "document-review-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/documentReview/DocumentReviewWebPart.js",
+          "manifest": "./src/webparts/documentReview/DocumentReviewWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "DocumentReviewWebPartStrings": "lib/webparts/documentReview/loc/{locale}.js"
+  }
+}
