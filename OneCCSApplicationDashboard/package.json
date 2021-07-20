@@ -18,9 +18,11 @@
     "@microsoft/sp-webpart-base": "1.12.1",
     "@pnp/common": "^2.7.0",
     "@pnp/graph": "^2.7.0",
+    "@pnp/polyfill-ie11": "^2.0.2",
     "@pnp/sp": "^2.7.0",
     "material-ui-icons": "latest",
     "office-ui-fabric-react": "7.156.0",
+    "polyfill-array-includes": "^2.0.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-vertical-timeline-component": "^3.3.3"
