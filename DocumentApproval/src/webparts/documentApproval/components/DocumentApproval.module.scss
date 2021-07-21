@@ -1,13 +1,11 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
 
-.documentReview {
-  .container {
-    max-width: 700px;
-    margin: 0px auto;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
-  }
-  h1{
-    text-align: center;
+.documentApproval {
+  div.alignCenter {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center,
+    
   }
   table {
     font-family: arial, sans-serif;
@@ -37,33 +35,12 @@
   tr:nth-child(even) {
    background-color: white;
   }
-  div.alignCenter {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center,
-    
+  .container {
+    max-width: 700px;
+    margin: 0px auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   }
-  .labeldata
-{
-width: 20%;
-font-size: 12px;
-}
-.labelContent
-{
-  width: 20%;
-  font-size: 12px;
-  
- 
-  
-}
-p.thick {
-  font-weight: bold;
-  padding-left: 8px;
-}
-.commentdiv
-{
-font-size: 12px;
-}
+
   .row {
     @include ms-Grid-row;
     @include ms-fontColor-white;
@@ -81,9 +58,7 @@ font-size: 12px;
 
   .title {
     @include ms-font-xl;
-    font-size: 18px;
-    font-weight: bold;
-   
+    @include ms-fontColor-white;
   }
 
   .subTitle {
