@@ -71,29 +71,19 @@ export default class DocumentReview extends React.Component<IDocumentReviewProps
             </tr>
             <tr>
               <td><Label>Requestor : SUBHA RAVEENDRAN </Label></td>
-              <td><Label >Requested Date : 21 JUL 2021 </Label></td></tr></table>
+              <td><Label >Requested Date : 21 JUL 2021 </Label></td></tr> </table>
+              <table> <tr><td><Label> Requestor Comment:</Label>Requested to review the document </td></tr></table>
               <table>
-              <tr>
-              <td><Label> Requestor Comment:</Label>Requested to review the document aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-              </tr></table>
-              <table>
-            <tr>
+            <tr  hidden={this.state.hideproject}>
               <td><Label>DCC : SUBHA RAVEENDRAN </Label></td>
-              <td><Label >DCC Date : 21 JUL 2021 </Label></td></tr></table>
-              <table><tr> <td><Label> DCC Comment:</Label>Requested to dcc level review the document</td>
+              <td><Label >DCC Date : 21 JUL 2021 </Label></td></tr> </table>
+              <table> <tr hidden={this.state.hideproject}>
+              <td><Label> DCC Comment:</Label>Requested to dcc level review the document</td>
             </tr>
-          </table>
+            </table>
           
           
-          <div hidden={this.state.hideproject}>
-          <table>
-           
-           
-          </table>
           
-          {/* <Label>DCC Comment:</Label><div className={styles.commentdiv}>{ReactHtmlParser(this.state.DCCComments)}</div> */}
-          
-          </div>
           </div>
           <div style={{ marginTop: '30px' }}>
           <Dropdown 
@@ -106,7 +96,9 @@ export default class DocumentReview extends React.Component<IDocumentReviewProps
           required />
 
         <TextField label="Comments" id="Comments" multiline autoAdjustHeight />
-        <DefaultButton id="b2" style={{ marginTop: '20px', float: "right", marginRight: "10px", borderRadius: "10px", border: "1px solid gray" }}>Submit</DefaultButton >
+        <br />
+          <DefaultButton id="b1" style={{ marginTop: '20px', float: "right", borderRadius: "10px", border: "1px solid gray" }}>Cancel</DefaultButton >
+          <DefaultButton id="b2" style={{ marginTop: '20px', float: "right", marginRight: "10px", borderRadius: "10px", border: "1px solid gray" }}>Submit</DefaultButton >
           <DefaultButton id="b2" style={{ marginTop: '20px', float: "right", marginRight: "10px", borderRadius: "10px", border: "1px solid gray" }}>Save</DefaultButton >
           <br />
         </div>
