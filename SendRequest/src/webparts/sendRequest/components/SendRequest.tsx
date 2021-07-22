@@ -133,7 +133,6 @@ export default class SendRequest extends React.Component<ISendRequestProps, ISen
                   personSelectionLimit={8}
                   groupName={""} // Leave this blank in case you want to filter from all users    
                   showtooltip={true}
-
                   disabled={false}
                   ensureUser={true}
                   // selectedItems={this._getVerifier}
