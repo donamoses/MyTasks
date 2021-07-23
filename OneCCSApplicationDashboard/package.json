@@ -9,6 +9,7 @@
     "test": "gulp test"
   },
   "dependencies": {
+    "@cloudfour/transition-hidden-element": "^2.0.2",
     "@fluentui/react": "^8.23.0",
     "@material-ui/core": "latest",
     "@microsoft/sp-core-library": "1.12.1",
