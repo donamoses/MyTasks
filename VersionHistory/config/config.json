@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "version-history-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/versionHistory/VersionHistoryWebPart.js",
+          "manifest": "./src/webparts/versionHistory/VersionHistoryWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "VersionHistoryWebPartStrings": "lib/webparts/versionHistory/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}

@@ -1,40 +1,10 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
 
-.sendRequest {
-  
+.detailList {
   .container {
     max-width: 700px;
     margin: 0px auto;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
-  }
-  
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100% ;
-    // border: 1px solid ;
-    border-radius: 5px;
-    // border-color:#F3F2F1;
-  }
-  
-  td {
-   // border: 1px solid #dddddd;
-    text-align: left;
-    //margin-left: 10px;
-  
-  }
-  th
-  {
-    margin: 20px;
-    font-weight: bolder;
-    background-color:#F3F2F1 ;
-    align-items: initial;
-  padding: 10px;
-  text-align: center;
-  font-size: 12px;
-  }
-  tr:nth-child(even) {
-   background-color: white;
   }
 
   .row {
@@ -53,9 +23,8 @@
   }
 
   .title {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center,
+    @include ms-font-xl;
+    @include ms-fontColor-white;
   }
 
   .subTitle {
