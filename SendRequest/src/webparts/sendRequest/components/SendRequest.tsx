@@ -69,20 +69,24 @@ export default class SendRequest extends React.Component<ISendRequestProps, ISen
       { key: 'IFC', text: 'IFC' },
       { key: 'ABT', text: 'ABT' },
       { key: 'VOID', text: 'VOID' },
-
-
-
-    ];
+];
+const BUOptions:IDropdownOption[]=[
+  {key:'BU1',text:'BU1'}
+];
+const CategoryOptions:IDropdownOption[]=[
+  {key:'BU1',text:'BU1'}
+];
     const dropdownStyles: Partial<IDropdownStyles> = {
       dropdown: { width: 180 },
     };
     return (
-      <div className={styles.sendRequest}>
+      <div className={styles.sendRequest} >
+         <div style={{ marginLeft: "auto",marginRight:"auto",width:"50rem" }}>
          <div className={styles.title}> Review and approval request form</div>
         
          
         <div >
-          <Label style={{ color: "red" }}>* fields are mandatory </Label>
+          
           <Label >Document :  <a href={this.state.LinkToDoc}>NOT/SHML/INT-PRC/AM-00009 Migration Policy.docx</a></Label>
           <table>
             <tr>
@@ -125,6 +129,20 @@ export default class SendRequest extends React.Component<ISendRequestProps, ISen
             </tr>
           </table>
           <table>
+            <tr><td>
+                 <Dropdown id="t3" label="Business Unit"
+                required={true}
+                    placeholder="Select an option"
+                    options={BUOptions}
+                    // onChanged={this._drpdwnDepCateg} 
+                    /></td>
+                    
+               <td> <Dropdown id="t2" required={true}label="Category"
+                    placeholder="Select an option"
+                    options={CategoryOptions}
+                    // onChanged={this._drpdwnDocCateg}
+                     />
+</td></tr>
             <tr>
               <td>
                 <PeoplePicker
@@ -143,10 +161,6 @@ export default class SendRequest extends React.Component<ISendRequestProps, ISen
                   resolveDelay={1000}
                 />
               </td>
-            </tr>
-          </table>
-          <table>
-            <tr>
               <td>
                 <PeoplePicker
                   context={this.props.context}
@@ -163,8 +177,13 @@ export default class SendRequest extends React.Component<ISendRequestProps, ISen
                   principalTypes={[PrincipalType.User]}
                   resolveDelay={1000} />
               </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              
               <td>
-                <DatePicker label="Due Date:" id="DueDate" style={{ width: '100%' }}
+                <DatePicker label="Due Date:" id="DueDate" style={{ width: '300px' }}
                   //formatDate={(date) => moment(date).format('DD/MM/YYYY')}
                   isRequired={true}
                   // value={this.state.ExpireDate}
@@ -181,15 +200,18 @@ export default class SendRequest extends React.Component<ISendRequestProps, ISen
             <tr><td> <TextField label="Comments" id="Comments" multiline autoAdjustHeight /></td></tr>
             <tr><td hidden={this.state.hideproject}><Checkbox label="Approve in same revision ? " boxSide="end" /></td></tr>
           </table>
-
+<div style={{padding:"0 0 0 38rem"}} >
+  <Label style={{ color: "red",fontStyle:"italic",fontSize:"12px" }}>* fields are mandatory </Label>
+  </div>
           <br />
           <DefaultButton id="b1" style={{ marginTop: '20px', float: "right", borderRadius: "10px", border: "1px solid gray" }}>Cancel</DefaultButton >
           <DefaultButton id="b2" style={{ marginTop: '20px', float: "right", marginRight: "10px", borderRadius: "10px", border: "1px solid gray" }}>Submit</DefaultButton >
-          <DefaultButton id="b2" style={{ marginTop: '20px', float: "right", marginRight: "10px", borderRadius: "10px", border: "1px solid gray" }}>Save</DefaultButton >
+          {/* <DefaultButton id="b2" style={{ marginTop: '20px', float: "right", marginRight: "10px", borderRadius: "10px", border: "1px solid gray" }}>Save</DefaultButton > */}
           <br />
           <br />
 
         </div>
+        </div>  
       </div>
     );
   }

@@ -45,9 +45,10 @@ export default class DocumentApproval extends React.Component<IDocumentApprovalP
     ];
     return (
       <div className={styles.documentApproval}>
+         <div style={{ marginLeft: "auto",marginRight:"auto",width:"50rem" }}>
         <div className={styles.alignCenter}> Approval form</div>
         <div >
-          <Label style={{ color: "red" }}>* fields are mandatory </Label>
+         
           <Label >Document :  <a href={this.state.LinkToDoc}>NOT/SHML/INT-PRC/AM-00009 Migration Policy.docx</a></Label>
           <table>
             <tr>
@@ -96,11 +97,15 @@ export default class DocumentApproval extends React.Component<IDocumentApprovalP
           required />
 
         <TextField label="Comments" id="Comments" multiline autoAdjustHeight />
-        <br />
+        
+        <div style={{padding:"0 0 0 38rem"}} >
+  <Label style={{ color: "red",fontStyle:"italic",fontSize:"12px" }}>* fields are mandatory </Label>
+  </div>
           <DefaultButton id="b1" style={{ marginTop: '20px', float: "right", borderRadius: "10px", border: "1px solid gray" }}>Cancel</DefaultButton >
           <DefaultButton id="b2" style={{ marginTop: '20px', float: "right", marginRight: "10px", borderRadius: "10px", border: "1px solid gray" }}>Submit</DefaultButton >
           <DefaultButton id="b2" style={{ marginTop: '20px', float: "right", marginRight: "10px", borderRadius: "10px", border: "1px solid gray" }}>Save</DefaultButton >
           <br />
+        </div>
         </div>
       </div>
     );

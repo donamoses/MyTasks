@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from './CreateDocument.module.scss';
 import { ICreateDocumentProps } from './ICreateDocumentProps';
 import { escape } from '@microsoft/sp-lodash-subset';
-import { DatePicker, DialogFooter, Dropdown, Icon, ITooltipHostStyles, Label, MessageBar, MessageBarType, PrimaryButton, TextField, TooltipHost } from 'office-ui-fabric-react';
+import { Checkbox, DatePicker, DefaultButton, DialogFooter, Dropdown, Icon, ITooltipHostStyles, Label, MessageBar, MessageBarType, PrimaryButton, TextField, TooltipHost } from 'office-ui-fabric-react';
 import { PeoplePicker, PrincipalType } from "@pnp/spfx-controls-react/lib/PeoplePicker";
 import { sp } from '@pnp/sp/presets/all';
 import "@pnp/sp/sites";
@@ -404,31 +404,36 @@ public render(): React.ReactElement<ICreateDocumentProps> {
 
     return (
       <div className={styles.createDocument}>
-         <h2><MyIcon />  CREATE DOCUMENT</h2>
+           <div style={{ marginLeft: "auto",marginRight:"auto",width:"50rem" }}>
+         <div className={styles.alignCenter}> Create Document</div>
          <div style={{ display: this.state.DocumentAdded }}>
                     <MessageBar messageBarType={MessageBarType.success} isMultiline={false}>  Document Saved Successfully.</MessageBar>
                 </div>
-                <p><Label >Title: </Label>
+                
+                
                 < TextField required id="t1"
+                label="Title"
                  onKeyUp={this._titleValidation}
                   onChange={this._titleChange}
-                   value={this.state.title} ></TextField></p>
+                   value={this.state.title} ></TextField>
                 <div id="msg"><Label style={{ color: "green" }}>Title can't contain any of the following characters: \ /:*?""|&#{ }%~"</Label></div>
-                <Label >Document Category:</Label>
-                <Dropdown id="t2" required={true}
+                
+
+                 <Dropdown id="t3" label="Business Unit"
+                required={true}
+                    placeholder="Select an option"
+                    options={this.state.depOptions}
+                    onChanged={this._drpdwnDepCateg} />
+                    
+                <Dropdown id="t2" required={true}label="Category"
                     placeholder="Select an option"
                     options={this.state.docCategoryOptions}
                     onChanged={this._drpdwnDocCateg} />
 
-                <Label >Department:</Label>  <Dropdown id="t3" required={true}
-                    placeholder="Select an option"
-                    options={this.state.depOptions}
-                    onChanged={this._drpdwnDepCateg} />
-
                 <PeoplePicker
                     context={this.props.context}
-                    titleText="Document Responsible"
-                    personSelectionLimit={3}
+                    titleText="Originator"
+                    personSelectionLimit={1}
                     groupName={""} // Leave this blank in case you want to filter from all users    
                     showtooltip={true}
                     required={false}
@@ -440,8 +445,8 @@ public render(): React.ReactElement<ICreateDocumentProps> {
                     resolveDelay={1000} />
                 <PeoplePicker
                     context={this.props.context}
-                    titleText="Verifier"
-                    personSelectionLimit={3}
+                    titleText="Reviewer(s)"
+                    personSelectionLimit={8}
                     groupName={""} // Leave this blank in case you want to filter from all users    
                     showtooltip={true}
                     required={false}
@@ -466,34 +471,66 @@ public render(): React.ReactElement<ICreateDocumentProps> {
                     defaultSelectedUsers={[this.state.setapprover]}
                     principalTypes={[PrincipalType.User]}
                     resolveDelay={1000} />
-                <TooltipHost
+                {/* <TooltipHost
                     content="Multiple Keywords should be ',' separated"
                     //id={tooltipId}
                     calloutProps={calloutProps}
                     styles={hostStyles}>
                     <Label >Keyword: </Label>< TextField id="keyword"   ></TextField>
-                </TooltipHost>
+                </TooltipHost> */}
                 {/* </Tooltip> */}
-                <Label>Expiry Date</Label>
-                <DatePicker 
+                
+               
                    
+                <DatePicker label="Expiry Date"
+                   style={{ width: '200px' }}
                     value={this.state.expiredate}
                     onSelectDate={this._onExpDatePickerChange}
                     placeholder="Select a date..."
                     ariaLabel="Select a date"
                 />
-                <Label >Select Template:</Label>  <Dropdown id="t7"
+               
+               
+               
+                <Label >Select a Template:</Label>  <Dropdown id="t7"
                     placeholder="Select an option"
 
                     options={this.state.docs} onChanged={this.templatechange}
                 />
-                <Label >Create Document:</Label> <input type="file" id="myfile" ></input>
+                <Label >Upload Document:</Label> <input  type="file" id="myfile" ></input>
+                <table>
+                        <tr>
+                            <td>
+                                <TooltipHost
+                                content="Check if the template or attachment is added"
+                                //id={tooltipId}
+                                calloutProps={calloutProps}
+                                styles={hostStyles}>
+                                    <Checkbox label="Create Document ? " boxSide="end" />
+                                </TooltipHost>
+                            </td><td style={{width:"2rem"}}></td>
+                            <td> 
+                                <TooltipHost
+                                content="The document to published library without sending it for review/approval"
+                                //id={tooltipId}
+                                calloutProps={calloutProps}
+                                styles={hostStyles}>
+                                    <Checkbox label="Direct Publish ? " boxSide="end" />
+                                </TooltipHost>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style={{padding:"0 0 0 38rem"}} >
+  <Label style={{ color: "red",fontStyle:"italic",fontSize:"12px" }}>* fields are mandatory </Label>
+  </div>
                 <DialogFooter>
-                    <PrimaryButton text="Save" onClick={this._onCreateDocument} />
-                    <PrimaryButton text="Cancel" onClick={this._onCancel} />
+                    {/* <PrimaryButton text="Save" onClick={this._onCreateDocument} />
+                    <PrimaryButton text="Cancel" onClick={this._onCancel} /> */}
+                    <DefaultButton id="b1" style={{ marginTop: '20px', float: "right", borderRadius: "10px", border: "1px solid gray" }}>Cancel</DefaultButton >
+                    <DefaultButton id="b2" style={{ marginTop: '20px', float: "right", marginRight: "10px", borderRadius: "10px", border: "1px solid gray" }}>Submit</DefaultButton >
 
                 </DialogFooter>
-                
+                </div>    
       </div>
     );
   }

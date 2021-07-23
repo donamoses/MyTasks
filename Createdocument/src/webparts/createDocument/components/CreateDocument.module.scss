@@ -1,6 +1,13 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
 
 .createDocument {
+  div.alignCenter {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center,
+    
+  }
+  
   .container {
     max-width: 700px;
     margin: 0px auto;
