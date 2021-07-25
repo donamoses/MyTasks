@@ -14,8 +14,8 @@ import { sp } from '@pnp/sp';
 
 export interface IDetailListWebPartProps {
   description: string;
-  siteurl:string;
-  listName:string;
+  siteurl: string;
+  listName: string;
 }
 
 export default class DetailListWebPart extends BaseClientSideWebPart<IDetailListWebPartProps> {
