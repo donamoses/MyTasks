@@ -21,7 +21,7 @@
     "office-ui-fabric-react": "7.156.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-simple-marquee": "^1.2.2"
+    "react-fast-marquee": "^1.2.1"
   },
   "devDependencies": {
     "@types/react": "16.9.36",
