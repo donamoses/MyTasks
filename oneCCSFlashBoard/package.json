@@ -17,11 +17,12 @@
     "@pnp/common": "^2.7.0",
     "@pnp/graph": "^2.7.0",
     "@pnp/sp": "^2.7.0",
+    "@pnp/spfx-controls-react": "^3.2.1",
     "jquery": "^3.6.0",
     "office-ui-fabric-react": "7.156.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-fast-marquee": "^1.2.1"
+    "react-simple-marquee": "^1.2.2"
   },
   "devDependencies": {
     "@types/react": "16.9.36",

@@ -1,42 +1,68 @@
 .dasboard {
+  background: #f4f7fc;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+
   .squareCat {
-    border-radius: 25px;
+    border-radius: 10px;
     padding: 18px;
-    width: 41px;
+    width: 45px;
     height: 45px;
     opacity: 0.5;
     cursor: pointer;
+    margin: 0 auto;
   }
   .squareCat:hover {
     opacity: 1;
   }
   .gridContainer {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 33.333% 33.333% 33.333%;
     //background-color: #f0f5f8;
-    padding: 10px;
+    div {
+      padding: 5px !important;
+      text-align: center;
+    }
   }
   .gridContainer1 {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 33.333% 33.333% 33.333%;
     //background-color: #f0f5f8;
+    div {
+      padding: 5px !important;
+      text-align: center;
+    }
   }
   .gridItem {
     text-align: center;
   }
   .squareCat1 {
-    border-radius: 25px;
+    // border-radius: 25px;
+    // padding: 18px;
+    // width: 41px;
+    // height: 45px;
+    // opacity: 0.5;
+    // cursor: pointer;
+    border-radius: 5px;
     padding: 18px;
-    width: 41px;
+    width: 45px;
     height: 45px;
-    opacity: 0.5;
+    //opacity: 0.5;
     cursor: pointer;
+    margin: 0 auto 10px;
+    background: #e3e4e4;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+      height: 100%;
+    }
   }
   .squareCat1:hover {
-    opacity: 1;
+    //opacity: 1;
   }
   i.msIcon {
-    font-size: 40px;
+    font-size: 32px;
     margin-bottom: 10px;
     color: white;
   }
@@ -71,4 +97,18 @@
 }
 .scrollableContent {
   overflow: hidden;
+}
+.defaultMenu {
+  text-align: center;
+}
+.subMenu {
+  text-align: center;
+}
+
+.ms-SearchBox {
+  margin: 10px auto;
+}
+
+.root-85 {
+  background-color: transparent;
 }

@@ -1,17 +1,26 @@
 @import "~office-ui-fabric-react/dist/sass/References.scss";
-
+@import "IOneCcsFlashBoardProps.ts";
 .oneCcsFlashBoard {
   .container {
     max-width: 100%;
     margin: 0px auto;
   }
+  // define variables first
+  $themePrimary: "[theme:themeDarker, default:#0078d7]";
+  $themeWhite: "[theme:white, default:white]";
 
   .row {
-    @include ms-Grid-row;
-    @include ms-fontColor-white;
-    background-color: $ms-color-themeDark;
     padding: 20px;
+    // use variables
+    background-color: $themePrimary;
+    color: $themeWhite;
   }
+  // .row {
+  //   @include ms-Grid-row;
+  //   @include ms-fontColor-white;
+  //   background-color: $ms-color-themeDark;
+  //   padding: 20px;
+  // }
 
   .column {
     @include ms-Grid-col;
@@ -69,6 +78,51 @@
       margin: 0 4px;
       vertical-align: top;
       display: inline-block;
+    }
+  }
+  .pnpImageCarousel {
+    .carouselContent {
+      height: 500px !important;
+    }
+
+    div[class^="details"] {
+      top: 80% !important;
+
+      span {
+        font-size: 15px !important;
+      }
+
+      span[class^="title"] {
+        font-size: 20px !important;
+      }
+    }
+
+    .carouselButtonsContainer button {
+      min-width: 32px !important;
+    }
+  }
+  .cssmarquee {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+  }
+  .cssmarquee div {
+    position: absolute;
+    color: turquoise;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    transform: translateY(-100%);
+    animation: cssmarquee 10s linear infinite;
+  }
+  @keyframes cssmarquee {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
     }
   }
 }

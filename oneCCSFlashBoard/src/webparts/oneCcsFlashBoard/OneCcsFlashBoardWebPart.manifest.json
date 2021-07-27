@@ -30,9 +30,13 @@
       "properties": {
         "description": "oneCCSFlashBoard",
         "listName": "",
-        "seperator": "",
+        "seperator": "*****",
         "speed": "",
-        "direction": ""
+        "direction": "",
+        "width": "420px",
+        "height": "83px",
+        "ListFieldTitle": "Title",
+        "ListFieldCategory": "Category"
       }
     }
   ]

@@ -6,5 +6,10 @@ export interface IOneCcsFlashBoardProps {
   siteUrl: string;
   horizontal: string;
   vertical: string;
-
+  Carosal: string;
+  width: string;
+  height: string;
+  backGround: string;
+  ListFieldTitle: string;
+  ListFieldCategory: string;
 }

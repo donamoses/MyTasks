@@ -45,7 +45,7 @@ const contentStyles = mergeStyleSets({
     },
   },
 });
-const searchBoxStyles: Partial<ISearchBoxStyles> = { root: { borderRadius: "6rem", width: "18rem", height: "2rem" } };
+const searchBoxStyles: Partial<ISearchBoxStyles> = { root: { borderRadius: "6rem", width: "18rem", height: "2rem", margin: "10px auto" } };
 export interface IOneCcsApplicationDashboardState {
   internalApplications: any[];
   shouldhide: boolean;
@@ -209,11 +209,11 @@ export default class OneCcsApplicationDashboard extends React.Component<IOneCcsA
     const backIcon: IIconProps = { iconName: 'Back' };
     return (
       <>
-        <div className={styles.dasboard} style={{ width: "20rem" }}>
+        <div className={styles.dasboard} style={{ minWidth: "20rem", width: "100%" }}>
           <div style={{ fontStyle: "bold", fontSize: 20, textAlign: 'left' }}>{this.props.description}</div>
           <SearchBox placeholder="Type application name" styles={searchBoxStyles} onSearch={newValue => console.log('value is ' + newValue)} onChange={this._onFilter} />
           <div style={{ display: this.state.backButton }}> <IconButton iconProps={backIcon} ariaLabel="Emoji" onClick={() => this._ApplicationCategory()} /></div>
-          <div style={{ display: this.state.catOpen }}>
+          <div className={styles.defaultMenu} style={{ display: this.state.catOpen }}>
             <div className={styles.gridContainer}>
               {this.state.categoryItems.map((cat, key) => {
                 return (
@@ -231,7 +231,7 @@ export default class OneCcsApplicationDashboard extends React.Component<IOneCcsA
             </div>
           </div>
           {/* Inner application binding */}
-          <div style={{ display: this.state.transition }}>
+          <div className={styles.subMenu} style={{ display: this.state.transition }}>
             <div className={contentStyles.header}>
               <div style={{ fontSize: "20px" }}>{this.state.applicationCategory}</div>
             </div>
@@ -253,7 +253,7 @@ export default class OneCcsApplicationDashboard extends React.Component<IOneCcsA
             </div>
           </div>
           {/* Search items */}
-          <div style={{ display: this.state.searchDiv }} >
+          <div style={{ display: this.state.searchDiv, marginLeft: "25px" }} >
 
             {this.state.items.map((searchItems, key) => {
               return (

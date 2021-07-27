@@ -13,6 +13,7 @@ import OneCcsFlashBoard from './components/OneCcsFlashBoard';
 import { IOneCcsFlashBoardProps } from './components/IOneCcsFlashBoardProps';
 import $ from 'jquery';
 import { sp } from "@pnp/sp/presets/all";
+import { createTheme, ITheme } from 'office-ui-fabric-react';
 export interface IOneCcsFlashBoardWebPartProps {
   description: string;
 }
@@ -33,6 +34,12 @@ export default class OneCcsFlashBoardWebPart extends BaseClientSideWebPart<IOneC
     catch (err) {
       console.log("Couldnot update the max-width of the page");
     }
+
+    const ThemeColorsFromWindow: any = (window as any).__themeState__.theme;
+    const siteTheme: ITheme = createTheme({ //pass this object to your components
+      palette: ThemeColorsFromWindow
+    });
+
     const element: React.ReactElement<IOneCcsFlashBoardProps> = React.createElement(
       OneCcsFlashBoard,
       {
@@ -43,7 +50,12 @@ export default class OneCcsFlashBoardWebPart extends BaseClientSideWebPart<IOneC
         siteUrl: this.context.pageContext.web.serverRelativeUrl,
         horizontal: this.properties.horizontal,
         vertical: this.properties.vertical,
-
+        Carosal: this.properties.Carosal,
+        width: this.properties.width,
+        height: this.properties.height,
+        backGround: siteTheme.palette.themeTertiary,
+        ListFieldTitle: this.properties.ListFieldTitle,
+        ListFieldCategory: this.properties.ListFieldCategory,
       }
     );
 
@@ -89,6 +101,18 @@ export default class OneCcsFlashBoardWebPart extends BaseClientSideWebPart<IOneC
                 }),
                 PropertyPaneCheckbox('slider', {
                   text: "Carosal"
+                }),
+                PropertyPaneTextField('width', {
+                  label: "Width"
+                }),
+                PropertyPaneTextField('height', {
+                  label: "Height"
+                }),
+                PropertyPaneTextField('ListFieldTitle', {
+                  label: "listTitleField"
+                }),
+                PropertyPaneTextField('ListFieldCategory', {
+                  label: "listCategoryField"
                 }),
 
               ]
