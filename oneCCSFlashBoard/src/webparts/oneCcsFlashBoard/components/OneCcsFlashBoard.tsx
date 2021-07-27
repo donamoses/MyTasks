@@ -43,15 +43,15 @@ export default class OneCcsFlashBoard extends React.Component<IOneCcsFlashBoardP
 
       for (let i = 0; i < results.length; i++) {
         firstItem.push({
-          Category: results[i].Category + ": " + results[i].Title,
+          Category: '<b>' + results[i].Category + '</b>' + ": " + results[i].Title,
         });
         console.log(firstItem);
       }
-      for (let i = 0; i <= firstItem.length; i++) {
+      for (let i = 0; i < firstItem.length - 1; i++) {
         let temp = firstItem[i].Category;
         firstItem[i].Category = firstItem[i + 1].Category;
-        firstItem[i + 1].Category = temp;
-        final = temp + this.props.seperator + firstItem[i].Category;
+        // firstItem[i].Category = temp;
+        final = temp + this.props.seperator + firstItem[i + 1].Category;
         console.log(final);
       }
 
@@ -71,7 +71,7 @@ export default class OneCcsFlashBoard extends React.Component<IOneCcsFlashBoardP
     return (
       <div>
         <Marquee>
-          <div>{this.state.ourFocus}</div>
+          <div dangerouslySetInnerHTML={{ __html: this.state.ourFocus }}></div>
         </Marquee>
       </div>
     );
