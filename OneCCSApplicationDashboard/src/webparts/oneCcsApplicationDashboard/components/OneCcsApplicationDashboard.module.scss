@@ -1,5 +1,4 @@
-.dasboard {
-  background: #f4f7fc;
+.dasboard {  
   border: 1px solid #ebebeb;
   border-radius: 10px;
 
@@ -58,9 +57,9 @@
       height: 100%;
     }
   }
-  .squareCat1:hover {
-    //opacity: 1;
-  }
+  // .squareCat1:hover {
+  //   //opacity: 1;
+  // }
   i.msIcon {
     font-size: 32px;
     margin-bottom: 10px;
@@ -103,12 +102,27 @@
 }
 .subMenu {
   text-align: center;
+  
 }
 
-.ms-SearchBox {
+.SearchBox {
   margin: 10px auto;
 }
 
-.root-85 {
-  background-color: transparent;
+
+.ms-SearchBox{
+   border-radius: 35px;
+   width: 70%;
+   height: 35px;
+   margin: 10px auto;
+  &:after{
+   border-radius:35px;
+ }
+ input{
+   padding: 0 5px;
+ }
+}
+
+.backButton{
+ float: left;
 }

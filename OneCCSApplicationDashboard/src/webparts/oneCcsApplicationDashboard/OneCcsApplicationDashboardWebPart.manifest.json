@@ -29,7 +29,8 @@
       "properties": {
         "description": "OneCCSApplicationDashboard",
         "siteUrl": "sites/OneCCS",
-        "listName": "ApplicationCategory"
+        "listName": "ApplicationCategory",
+        "backGroundColor":""
       }
     }
   ]

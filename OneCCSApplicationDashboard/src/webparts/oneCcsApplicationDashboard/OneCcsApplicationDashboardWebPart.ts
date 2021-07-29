@@ -30,8 +30,9 @@ export default class OneCcsApplicationDashboardWebPart extends BaseClientSideWeb
       OneCcsApplicationDashboard,
       {
         description: this.properties.description,
-        siteUrl: this.properties.siteUrl,
+        siteUrl: this.context.pageContext.web.serverRelativeUrl,
         listName: this.properties.listName,
+        backGroundColor:this.properties.backGroundColor,
       }
     );
 
@@ -59,12 +60,12 @@ export default class OneCcsApplicationDashboardWebPart extends BaseClientSideWeb
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
-                }),
-                PropertyPaneTextField('siteUrl', {
-                  label: "siteUrl"
-                }),
+                }),               
                 PropertyPaneTextField('listName', {
                   label: "listName"
+                }), 
+                PropertyPaneTextField('backGroundColor', {
+                  label: "BackGroundColor"
                 })
               ]
             }

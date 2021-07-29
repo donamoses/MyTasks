@@ -3,8 +3,9 @@ import styles from './OneCcsApplicationDashboard.module.scss';
 import { IOneCcsApplicationDashboardProps } from './IOneCcsApplicationDashboardProps';
 import './dashboard.css';
 import { sp } from "@pnp/sp/presets/all";
-import { Modal } from '@fluentui/react';
-import { FontWeights, getTheme, IButtonStyles, Icon, IconButton, IIconProps, IPanelStyles, ISearchBoxStyles, ITextFieldStyles, ITooltipHostStyles, Link, mergeStyleSets, Panel, PanelType, PrimaryButton, SearchBox, TextField, TooltipHost } from 'office-ui-fabric-react';
+import { ISearchBoxStyleProps, Modal } from '@fluentui/react';
+
+import { FontWeights, getTheme, IButtonStyles, Icon, IconButton, IIconProps, IPanelStyles, ISearchBoxStyles, ITextFieldStyles, ITooltipHostStyles, Link, mergeStyleSets, SearchBox, TextField, TooltipHost } from 'office-ui-fabric-react';
 import "@pnp/polyfill-ie11";
 import 'polyfill-array-includes';
 import * as _ from 'lodash';
@@ -45,7 +46,9 @@ const contentStyles = mergeStyleSets({
     },
   },
 });
-const searchBoxStyles: Partial<ISearchBoxStyles> = { root: { borderRadius: "6rem", width: "18rem", height: "2rem", margin: "10px auto" } };
+// const searchBoxStyles: Partial<ISearchBoxStyles> = {
+//    root: { borderRadius: "6rem", width: "18rem", height: "2rem", margin: "10px auto" }};
+
 export interface IOneCcsApplicationDashboardState {
   internalApplications: any[];
   shouldhide: boolean;
@@ -56,13 +59,14 @@ export interface IOneCcsApplicationDashboardState {
   callOut: boolean;
   searchtext: any[];
   items: any[];
-  transition: string;
-  catOpen: string;
+  transition: any;
+  catOpen: any;
   catName: string;
   divItems: any[];
   searchDiv: string;
   backButton: string;
-
+  divHeight:any;
+  innerAppHeight:any;
 }
 let sortedArray = [];
 export default class OneCcsApplicationDashboard extends React.Component<IOneCcsApplicationDashboardProps, IOneCcsApplicationDashboardState, {}> {
@@ -79,12 +83,13 @@ export default class OneCcsApplicationDashboard extends React.Component<IOneCcsA
       searchtext: [],
       items: [],
       transition: 'none',
-      catOpen: "",
+      catOpen: "Visible",
       catName: "",
       divItems: [],
       searchDiv: 'none',
       backButton: 'none',
-
+      divHeight:"",
+      innerAppHeight:"",
     };
     this._modalClose = this._modalClose.bind(this);
     this._panelClose = this._panelClose.bind(this);
@@ -100,10 +105,11 @@ export default class OneCcsApplicationDashboard extends React.Component<IOneCcsA
   private _ApplicationCategory = () => {
     this.setState({
       catOpen: "",
-      transition: 'none',
+      transition: 'hidden',
       searchDiv: 'none',
       backButton: 'none',
       internalApplications: [],
+      divHeight:"",
     });
     sp.web.getList(this.props.siteUrl + "/Lists/" + this.props.listName).items.get().then(results => {
       this.setState({
@@ -137,10 +143,13 @@ export default class OneCcsApplicationDashboard extends React.Component<IOneCcsA
       shouldhide: true,
       applicationCategory: cat.Title,
       icon: cat.IconName,
-      transition: "",
-      catOpen: 'none',
+      transition: "Visible",
+      catOpen: 'hidden',
+      divHeight:0,
       backButton: "",
+      innerAppHeight:"",
     });
+    
     sp.web.getList(this.props.siteUrl + "/Lists/InternalApplications").items.filter("ApplicationCategoryId eq '" + cat.ID + "'").get().then(iAppItems => {
       this.setState({
         internalApplications: iAppItems,
@@ -176,9 +185,10 @@ export default class OneCcsApplicationDashboard extends React.Component<IOneCcsA
       this.setState({
         items: text ? this.state.searchtext.filter(i => i.Title.toLowerCase().indexOf(text.toString().toLowerCase()) > -1) : this.state.searchtext,
         searchDiv: "",
-        catOpen: 'none',
-        transition: 'none',
-
+        catOpen: 'hidden',
+        transition: 'hidden',
+        divHeight: 0,
+        innerAppHeight:0,
       });
     }
   }
@@ -209,11 +219,11 @@ export default class OneCcsApplicationDashboard extends React.Component<IOneCcsA
     const backIcon: IIconProps = { iconName: 'Back' };
     return (
       <>
-        <div className={styles.dasboard} style={{ minWidth: "20rem", width: "100%" }}>
+        <div className={styles.dasboard} style={{ minWidth: "20rem", width: "100%",backgroundColor:this.props.backGroundColor }}>
           <div style={{ fontStyle: "bold", fontSize: 20, textAlign: 'left' }}>{this.props.description}</div>
-          <SearchBox placeholder="Type application name" styles={searchBoxStyles} onSearch={newValue => console.log('value is ' + newValue)} onChange={this._onFilter} />
-          <div style={{ display: this.state.backButton }}> <IconButton iconProps={backIcon} ariaLabel="Emoji" onClick={() => this._ApplicationCategory()} /></div>
-          <div className={styles.defaultMenu} style={{ display: this.state.catOpen }}>
+          <SearchBox placeholder="Type application name" className={styles['ms-SearchBox']}  onSearch={newValue => console.log('value is ' + newValue)} onChange={this._onFilter} />
+        
+          <div className={styles.defaultMenu} style={{ visibility: this.state.catOpen,height: this.state.divHeight }}>
             <div className={styles.gridContainer}>
               {this.state.categoryItems.map((cat, key) => {
                 return (
@@ -231,9 +241,9 @@ export default class OneCcsApplicationDashboard extends React.Component<IOneCcsA
             </div>
           </div>
           {/* Inner application binding */}
-          <div className={styles.subMenu} style={{ display: this.state.transition }}>
+          <div className={styles.subMenu}  style={{ visibility: this.state.transition,height: this.state.innerAppHeight }}>
             <div className={contentStyles.header}>
-              <div style={{ fontSize: "20px" }}>{this.state.applicationCategory}</div>
+              <div style={{ fontSize: "20px" }}>  <div className={styles.backButton} style={{ display: this.state.backButton }}> <IconButton iconProps={backIcon} ariaLabel="Emoji" onClick={() => this._ApplicationCategory()} /></div>{this.state.applicationCategory}</div>
             </div>
             <div className={styles.gridContainer1}>
               {this.state.internalApplications.map((intAppItems, key) => {

@@ -56,6 +56,7 @@ export default class OneCcsFlashBoardWebPart extends BaseClientSideWebPart<IOneC
         backGround: siteTheme.palette.themeTertiary,
         ListFieldTitle: this.properties.ListFieldTitle,
         ListFieldCategory: this.properties.ListFieldCategory,
+        textColor:siteTheme.palette.themeTertiary,
       }
     );
 
