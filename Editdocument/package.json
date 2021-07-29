@@ -9,6 +9,8 @@
     "test": "gulp test"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.2",
+    "@material-ui/icons": "^4.11.2",
     "@microsoft/sp-core-library": "1.12.1",
     "@microsoft/sp-lodash-subset": "1.12.1",
     "@microsoft/sp-office-ui-fabric-core": "1.12.1",
@@ -18,7 +20,8 @@
     "@pnp/spfx-controls-react": "3.2.1",
     "office-ui-fabric-react": "7.156.0",
     "react": "16.9.0",
-    "react-dom": "16.9.0"
+    "react-dom": "16.9.0",
+    "react-vertical-timeline-component": "^3.3.3"
   },
   "devDependencies": {
     "@types/react": "16.9.36",

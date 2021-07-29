@@ -3,4 +3,5 @@ export interface IEditDocumentProps {
   context: WebPartContext;
   description: string;
   createdocument:string;
+  project:string;
 }

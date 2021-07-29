@@ -15,6 +15,7 @@ import { IEditDocumentProps } from './components/IEditDocumentProps';
 export interface IEditDocumentWebPartProps {
   description: string;
   createdocument:string;
+  project:string;
 }
 
 export default class EditDocumentWebPart extends BaseClientSideWebPart<IEditDocumentWebPartProps> {
@@ -31,7 +32,8 @@ export default class EditDocumentWebPart extends BaseClientSideWebPart<IEditDocu
       {
         context: this.context,
         description: this.properties.description,
-        createdocument:this.properties.createdocument
+        createdocument:this.properties.createdocument,
+        project:this.properties.project
       }
     );
 
@@ -62,6 +64,11 @@ export default class EditDocumentWebPart extends BaseClientSideWebPart<IEditDocu
                 }),
                 PropertyPaneToggle('createdocument',{
                   label:'CreateDocument',
+                  onText: 'On',
+                  offText: 'Off'
+                }),
+                PropertyPaneToggle('project',{
+                  label:'Project',
                   onText: 'On',
                   offText: 'Off'
                 }),

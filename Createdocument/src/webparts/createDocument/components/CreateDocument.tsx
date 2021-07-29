@@ -412,11 +412,11 @@ public render(): React.ReactElement<ICreateDocumentProps> {
                 
                 
                 < TextField required id="t1"
-                label="Title"
+                label="Name"
                  onKeyUp={this._titleValidation}
                   onChange={this._titleChange}
                    value={this.state.title} ></TextField>
-                <div id="msg"><Label style={{ color: "green" }}>Title can't contain any of the following characters: \ /:*?""|&#{ }%~"</Label></div>
+                <div id="msg"><Label style={{ color: "green" }}>Name can't contain any of the following characters: \ /:*?""|&#{ }%~"</Label></div>
                 
 
                  <Dropdown id="t3" label="Business Unit"
@@ -429,7 +429,10 @@ public render(): React.ReactElement<ICreateDocumentProps> {
                     placeholder="Select an option"
                     options={this.state.docCategoryOptions}
                     onChanged={this._drpdwnDocCateg} />
-
+                <Dropdown id="t2" required={true}label="Sub Category"
+                    placeholder="Select an option"
+                    options={this.state.docCategoryOptions}
+                    onChanged={this._drpdwnDocCateg} />
                 <PeoplePicker
                     context={this.props.context}
                     titleText="Originator"
@@ -516,6 +519,15 @@ public render(): React.ReactElement<ICreateDocumentProps> {
                                 calloutProps={calloutProps}
                                 styles={hostStyles}>
                                     <Checkbox label="Direct Publish ? " boxSide="end" />
+                                </TooltipHost>
+                            </td> <td style={{width:"2rem"}}></td>
+                            <td> 
+                                <TooltipHost
+                                content="Is the document is Critical"
+                                //id={tooltipId}
+                                calloutProps={calloutProps}
+                                styles={hostStyles}>
+                                    <Checkbox label="Critical Document ? " boxSide="end" />
                                 </TooltipHost>
                             </td>
                         </tr>
