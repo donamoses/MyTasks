@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "route-command-set": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/route/RouteCommandSet.js",
+          "manifest": "./src/extensions/route/RouteCommandSet.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "RouteCommandSetStrings": "lib/extensions/route/loc/{locale}.js"
+  }
+}
