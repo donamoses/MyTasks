@@ -7,13 +7,13 @@
     padding: 18px;
     width: 45px;
     height: 45px;
-    opacity: 0.5;
+    //opacity: 0.5;
     cursor: pointer;
     margin: 0 auto;
   }
-  .squareCat:hover {
-    opacity: 1;
-  }
+  // .squareCat:hover {
+  //   opacity: 1;
+  // }
   .gridContainer {
     display: grid;
     grid-template-columns: 33.333% 33.333% 33.333%;

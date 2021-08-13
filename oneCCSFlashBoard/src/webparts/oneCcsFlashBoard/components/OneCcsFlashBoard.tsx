@@ -11,11 +11,14 @@ export interface IOneCcsFlashBoardState {
   description: any[];
   vertical:string;
   carouselElements: any[];
+  textColorFromPrptyPane:string;
+  hide:string;
 
 }
 export interface ourFocusItems {
   Category: any;
-  verCatogary:any
+  verCatogary:any;
+ 
 
 }
 
@@ -30,6 +33,8 @@ export default class OneCcsFlashBoard extends React.Component<IOneCcsFlashBoardP
       description: [],
       carouselElements: [],
       vertical:"",
+      textColorFromPrptyPane:"",
+      hide:"",
     };
     this._Horizontal=this._Horizontal.bind(this);
     this.vertical=this.vertical.bind(this);
@@ -37,8 +42,12 @@ export default class OneCcsFlashBoard extends React.Component<IOneCcsFlashBoardP
 
   public async componentDidMount() {
     this._ApplicationCategory();
-    console.log(this.props.backGround);
-    
+    console.log(this.props.backGround);   
+    if(this.props.vertical){
+      this.setState({
+        hide:"none",
+      });
+    } 
   }
 
   private _ApplicationCategory = () => {
@@ -73,25 +82,43 @@ export default class OneCcsFlashBoard extends React.Component<IOneCcsFlashBoardP
       });
       console.log(results);
     });
+    
 
   }
 
 private _Horizontal(){  
   if(this.props.horizontal){
-        return(
-     
-  <div style={{color:this.props.textColor}} dangerouslySetInnerHTML={{ __html: this.state.ourFocus }}></div>
+    
+    if(this.props.textColorFromPrptyPane || this.props.backGroundFromPrptyPane)
+        return(                
+  <div style={{color:this.props.textColorFromPrptyPane,fontSize:this.props.fontSize,width:this.props.horWidth,animationDuration:this.props.speed}} dangerouslySetInnerHTML={{ __html: this.state.ourFocus }}></div>
     );
+    else 
+  {
+    return(
+      <div style={{color:this.props.textColor,fontSize:this.props.fontSize}} dangerouslySetInnerHTML={{ __html: this.state.ourFocus }}></div>
+    );
+    
+  }
   }  
 }
 private vertical () {
-  if(this.props.vertical){
-    return(     
-      //this.state.description.map((cat)=>{
-        //return( 
-        <div dangerouslySetInnerHTML={{ __html: this.state.vertical}} ></div>);       
-      //})               
-     //);     
+  if(this.props.vertical)
+  {
+    
+          if(this.props.textColorFromPrptyPane )
+              return( 
+                
+              <div style={{color:this.props.textColorFromPrptyPane}} dangerouslySetInnerHTML={{ __html: this.state.vertical} }></div>
+             
+              );
+          else 
+          {
+            return(
+              <div style={{color:this.props.textColor}} dangerouslySetInnerHTML={{ __html: this.state.vertical}}></div>
+            );
+
+            }     
   }
 }
 
@@ -99,18 +126,19 @@ private vertical () {
   public render(): React.ReactElement<IOneCcsFlashBoardProps> {
 
     return (
-      <div >
-         <div>
-        <Marquee>
-        {this._Horizontal()}
-        </Marquee>
-        </div>
-        
-        <div className={styles.marquee} style={{width:this.props.width}} >        
-        {this.vertical()}     
-        </div>
-     
+      <><div className={styles.marqueeHor} style={{ background: this.props.backGroundFromPrptyPane, display: this.state.hide }}>
+              {/* <Marquee>          */}
+              {this._Horizontal()}
+              {/* </Marquee>   */}
       </div>
+      <div>
+          <div className={styles.marqueeBlock}>
+            <div className={styles.marquee} style={{ width: this.props.width, height: this.props.height, background: this.props.backGroundFromPrptyPane, fontSize: this.props.fontSize }}>
+              {this.vertical()}
+            </div>
+          </div>
+
+        </div></>
     );
   }
 

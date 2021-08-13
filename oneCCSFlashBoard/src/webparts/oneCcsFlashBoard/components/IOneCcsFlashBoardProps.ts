@@ -13,4 +13,8 @@ export interface IOneCcsFlashBoardProps {
   ListFieldTitle: string;
   ListFieldCategory: string;
   textColor:string;
+  textColorFromPrptyPane:string;
+  backGroundFromPrptyPane:string;
+  fontSize:string;
+  horWidth:string;
 }

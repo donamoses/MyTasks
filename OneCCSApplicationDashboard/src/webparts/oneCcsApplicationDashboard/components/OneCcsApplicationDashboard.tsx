@@ -219,7 +219,7 @@ export default class OneCcsApplicationDashboard extends React.Component<IOneCcsA
     const backIcon: IIconProps = { iconName: 'Back' };
     return (
       <>
-        <div className={styles.dasboard} style={{ minWidth: "20rem", width: "100%",backgroundColor:this.props.backGroundColor }}>
+        <div className={styles.dasboard} style={{ minWidth: "15rem", width: "100%",backgroundColor:this.props.backGroundColor }}>
           <div style={{ fontStyle: "bold", fontSize: 20, textAlign: 'left' }}>{this.props.description}</div>
           <SearchBox placeholder="Type application name" className={styles['ms-SearchBox']}  onSearch={newValue => console.log('value is ' + newValue)} onChange={this._onFilter} />
         

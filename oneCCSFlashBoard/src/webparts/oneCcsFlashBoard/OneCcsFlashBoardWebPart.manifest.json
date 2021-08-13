@@ -34,9 +34,13 @@
         "speed": "",
         "direction": "",
         "width": "420px",
-        "height": "83px",
+        "horWidth":"230%",
+        "height": "",
         "ListFieldTitle": "Title",
-        "ListFieldCategory": "Category"
+        "ListFieldCategory": "Category",
+        "backGroundFromPrptyPane":"",
+        "textColorFromPrptyPane":"",
+        "fontSize":"11px"
       }
     }
   ]

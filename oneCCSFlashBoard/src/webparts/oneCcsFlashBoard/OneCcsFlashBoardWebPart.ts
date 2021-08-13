@@ -57,6 +57,10 @@ export default class OneCcsFlashBoardWebPart extends BaseClientSideWebPart<IOneC
         ListFieldTitle: this.properties.ListFieldTitle,
         ListFieldCategory: this.properties.ListFieldCategory,
         textColor:siteTheme.palette.themeTertiary,
+        textColorFromPrptyPane:this.properties.textColorFromPrptyPane,
+        backGroundFromPrptyPane:this.properties.backGroundFromPrptyPane,
+        fontSize:this.properties.fontSize,
+        horWidth:this.properties.horWidth,
       }
     );
 
@@ -115,8 +119,19 @@ export default class OneCcsFlashBoardWebPart extends BaseClientSideWebPart<IOneC
                 PropertyPaneTextField('ListFieldCategory', {
                   label: "listCategoryField"
                 }),
-
+                PropertyPaneTextField('backGroundFromPrptyPane', {
+                  label: "BackGround Color"
+                }),PropertyPaneTextField('textColorFromPrptyPane', {
+                  label: "Text Color"
+                }),PropertyPaneTextField('fontSize', {
+                  label: "Font Size"
+                }),
+                PropertyPaneTextField('horWidth', {
+                  label: "Horizontal Marquee Width"
+                })
               ]
+             
+              
             }
           ]
         }

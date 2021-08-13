@@ -5,11 +5,17 @@
   //background-color: #1c87c9;
   color: rgb(12, 1, 1);
   text-align: center;
+  
 }
+
 .marquee div {
   -moz-animation: marquee 5s linear infinite;
   -webkit-animation: marquee 5s linear infinite;
   animation: marquee 19s linear infinite;
+  text-align: center;
+}
+.marqueeBlock {
+  overflow: hidden;
 }
 @-moz-keyframes marquee {
   0% {
@@ -37,5 +43,61 @@
     -moz-transform: translate(0, -100%);
     -webkit-transform: translate(0, -100%);
     transform: translate(0, -100%);
+  }
+}
+
+.marqueeHor {
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+
+}
+
+.marqueeHor div {
+  position: absolute;
+  //width: 212%;
+  height: 100%;
+  margin: 0;
+  border-radius: 31px;
+  line-height: 50px;
+  text-align: center;
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  -moz-animation: scroll-left 2s linear infinite;
+  -webkit-animation: scroll-left 2s linear infinite;
+   animation: scroll-left 35s linear infinite;
+   
+}
+
+@-moz-keyframes scroll-left {
+  0% {
+      -moz-transform: translateX(100%);
+  }
+  100% {
+      -moz-transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes scroll-left {
+  0% {
+      -webkit-transform: translateX(100%);
+  }
+  100% {
+      -webkit-transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+      -moz-transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+  }
+  100% {
+      -moz-transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
   }
 }
